@@ -1,0 +1,28 @@
+header {
+  background-color: $header-bg;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo-img {
+      width: 130px;
+    }
+    .welcome{
+        color:#49406b;
+        font-weight: 600;
+        font-size: 1.4rem;
+        letter-spacing:2px;
+
+        p{
+            position: relative;
+
+            span{
+                content:"|";
+                position: absolute;
+                right: -6px;
+
+            }
+        }
+    }
+  }
+}
