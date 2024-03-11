@@ -49,7 +49,7 @@ const getAJoke = async (url) => {
     animatedText(jsonData.joke, jokeTextElement);
   }
 };
-// getAJoke(BASEURL_JOKE)
+getAJoke(BASEURL_JOKE)
 jokeBtn.onclick = () => {
   getAJoke(BASEURL_JOKE);
 };
