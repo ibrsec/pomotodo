@@ -152,9 +152,7 @@ section#tasks .container {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  border-left: 10px solid #74abb9;
-  border-right: 10px solid #74abb9;
-  border-bottom: 10px solid #74abb9;
+  border: 10px solid #74abb9;
   min-height: 400px;
 }
 section#tasks .container .task-add-container {

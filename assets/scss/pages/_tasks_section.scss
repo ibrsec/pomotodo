@@ -5,9 +5,10 @@ section#tasks {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    border-left: 10px solid $header-bg;
-    border-right: 10px solid $header-bg;
-    border-bottom: 10px solid $header-bg;
+    border: 10px solid $header-bg;
+    // border-left: 10px solid $header-bg;
+    // border-right: 10px solid $header-bg;
+    // border-bottom: 10px solid $header-bg;
     min-height: 400px;
 
     .task-add-container{
