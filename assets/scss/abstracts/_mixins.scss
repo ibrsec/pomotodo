@@ -1,0 +1,16 @@
+
+@mixin btnStyle{
+    border: none;
+            font-size: 1.3rem;
+            padding: .7rem 2rem;
+            background-color: $header-bg;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: .6s all ease;
+            &:hover{
+                opacity: .8;
+            }
+            &:active{
+                color: white;
+            }
+}

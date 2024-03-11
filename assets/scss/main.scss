@@ -1,12 +1,28 @@
 @import "./base/reset";
 @import "./layout/responsive";
 @import "./abstracts/variables";
+@import "./abstracts/mixins";
 @import "./components/header";
+@import "./pages/jokeSection";
+@import "./pages/count_time_section";
+@import "./pages/tasks_section";
 
 
+main {
+  section {
+    .container {
+    //   border: 10px solid $header-bg;
+      transition: .6s all ease;
+
+    }
+  }
+}
 
 
-
-
-
-
+button{
+    text-shadow: 1px 1px 5px white;
+}
+input{
+    text-shadow: 1px 1px 5px white;
+    
+}

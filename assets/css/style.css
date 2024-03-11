@@ -19,7 +19,7 @@ header .container {
   justify-content: space-between;
 }
 header .container .logo-img {
-  width: 130px;
+  width: 70px;
 }
 header .container .welcome {
   color: #49406b;
@@ -34,6 +34,241 @@ header .container .welcome p span {
   content: "|";
   position: absolute;
   right: -6px;
+}
+
+section#joke .container {
+  background-color: #74abb9;
+  transition: 0.6s all ease;
+  display: grid;
+  place-items: center;
+  padding: 3rem;
+  color: #6A2B2A;
+  font-weight: 600;
+}
+section#joke .container #joke-btn {
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.7rem 2rem;
+  background-color: #74abb9;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.6s all ease;
+  background-color: #fff;
+  color: #74abb9;
+}
+section#joke .container #joke-btn:hover {
+  opacity: 0.8;
+}
+section#joke .container #joke-btn:active {
+  color: white;
+}
+section#joke .container p {
+  font-size: 1.1rem;
+  padding: 2rem;
+  color: white;
+  text-shadow: 1px 1px 5px white;
+}
+
+section#count-time .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-left: 10px solid #74abb9;
+  border-right: 10px solid #74abb9;
+}
+section#count-time .container .time-container {
+  padding: 1rem;
+}
+section#count-time .container .time-container span {
+  font-size: 2rem;
+}
+section#count-time .container .active-task p {
+  color: rgb(94, 148, 156);
+  padding-bottom: 2px;
+  border-bottom: 1px solid;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+section#count-time .container .time-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+section#count-time .container .time-buttons button {
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.7rem 2rem;
+  background-color: #74abb9;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.6s all ease;
+}
+section#count-time .container .time-buttons button:hover {
+  opacity: 0.8;
+}
+section#count-time .container .time-buttons button:active {
+  color: white;
+}
+
+section#tasks .container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border-left: 10px solid #74abb9;
+  border-right: 10px solid #74abb9;
+  border-bottom: 10px solid #74abb9;
+  min-height: 400px;
+}
+section#tasks .container .task-add-container {
+  width: 4000px;
+  padding: 1rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 15px;
+}
+section#tasks .container .task-add-container input {
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: #93c2cd;
+  border: none;
+  border-radius: 15px;
+  transition: 0.5s all ease;
+}
+section#tasks .container .task-add-container input:hover {
+  opacity: 0.9;
+}
+section#tasks .container .task-add-container input:focus {
+  outline: none;
+  background-color: #8faeb5;
+}
+section#tasks .container .task-add-container button {
+  text-shadow: 1px 1px 5px white;
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.7rem 2rem;
+  background-color: #74abb9;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.6s all ease;
+}
+section#tasks .container .task-add-container button:hover {
+  opacity: 0.8;
+}
+section#tasks .container .task-add-container button:active {
+  color: white;
+}
+section#tasks .container ul#task-container {
+  width: 350px;
+  list-style: none;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  justify-self: start;
+  gap: 5px;
+}
+section#tasks .container ul#task-container li {
+  padding: 8px;
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  position: relative;
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  border-radius: 4px;
+  background-color: rgb(220, 224, 225);
+  cursor: move;
+}
+section#tasks .container ul#task-container li.checked {
+  text-decoration: line-through;
+  color: rgb(104, 101, 101);
+  background-color: rgb(179, 212, 179);
+  order: -1;
+}
+section#tasks .container ul#task-container li.active {
+  border-color: rgb(88, 133, 19);
+  background-color: #adc1c4;
+}
+section#tasks .container ul#task-container li span.checkbox {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(195, 195, 211);
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+section#tasks .container ul#task-container li.checked .checkbox {
+  font-size: 0.9rem;
+  display: grid;
+  color: black;
+  place-items: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(40, 179, 40);
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid rgb(36, 127, 132);
+}
+section#tasks .container ul#task-container li span {
+  position: absolute;
+  color: rgb(255, 85, 0);
+  cursor: pointer;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+section#tasks .container ul#task-container li .task-time {
+  content: "11123";
+  font-size: 0.8rem;
+  position: absolute;
+  color: rgb(36, 127, 132);
+  opacity: 0.8;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+section#tasks .container ul#task-container li .color-span {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 65px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+section#tasks .container ul#task-container li .color-span input {
+  width: 100%;
+  height: 100%;
+}
+section#tasks .container ul#task-container li.dragging {
+  opacity: 0.5;
+}
+section#tasks .container ul#task-container li.over {
+  background-color: darkgray;
+}
+
+main section .container {
+  transition: 0.6s all ease;
+}
+
+button {
+  text-shadow: 1px 1px 5px white;
+}
+
+input {
+  text-shadow: 1px 1px 5px white;
 }
 
 /*# sourceMappingURL=style.css.map */
