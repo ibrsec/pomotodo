@@ -11,7 +11,7 @@ section#tasks {
     min-height: 400px;
 
     .task-add-container{
-        width: 4000px;
+        width: 400px;
         padding: 1rem;
         display: flex;
         align-content: center;
@@ -19,7 +19,7 @@ section#tasks {
         gap: 15px;
 
         input{
-            padding: 10px;
+            padding: 10px 1rem 10px 1.6rem;
             font-size: 1.2rem;
             background-color: #93c2cd;
             

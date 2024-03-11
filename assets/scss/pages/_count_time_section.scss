@@ -6,8 +6,8 @@ section#count-time {
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
-    border-left: 10px solid $header-bg;
-    border-right: 10px solid $header-bg;
+    border: 10px solid $header-bg;
+
 
 
     .time-container {
@@ -33,6 +33,7 @@ section#count-time {
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: rgba(0,0,0,0.1);
     }
     .time-buttons{
         display: flex;
@@ -41,6 +42,8 @@ section#count-time {
         gap: 5px;
         button{
             @include btnStyle;
+            text-shadow: 1px 1px 5px black;
+            border: 1px solid gray;
         }
     }
   }

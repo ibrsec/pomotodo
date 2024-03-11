@@ -86,12 +86,14 @@ startBtn.addEventListener("click", () => {
     .querySelectorAll("section#count-time .container .time-buttons button")
     .forEach((item) => (item.style.color = "white"));
     
+    document.querySelector("section#count-time .container").style.borderColor = "black";
+
 
   //show off the task when open the time
   document.querySelector("section#tasks").style.display = "none";
   document.getElementById("click-sound").play()
 
-
+  
 
 
 });
@@ -122,6 +124,8 @@ stopBtn.addEventListener("click", () => {
 
     const choosenColor = [...document.querySelectorAll("li")].filter(item => item.classList.contains("active"))[0].querySelector('#color-input').value;
   setColorTheme(choosenColor);
+
+//   document.querySelector("section#count-time .container").style.borderBottomColor = "transparent";
   
 
   //send the time to active task
@@ -347,7 +351,6 @@ tasksContainer.addEventListener("click", (e) => {
 
 
 const setColorTheme = (choosenColor) => {
-if(!(choosenColor == "white" || choosenColor == "#fff" || choosenColor == "#ffffff"  || choosenColor == "#000" || choosenColor == "#000000" || choosenColor == "black") ){
   //start button styles
   document.querySelector("header").style.backgroundColor = choosenColor;
   document.querySelector("#joke .container").style.backgroundColor = choosenColor;
@@ -357,7 +360,9 @@ if(!(choosenColor == "white" || choosenColor == "#fff" || choosenColor == "#ffff
   .querySelectorAll("section#count-time .container .time-buttons button")
   .forEach((item) => (item.style.backgroundColor = choosenColor));
 
-  document.querySelector("section#tasks .container").style.borderColor = choosenColor; 
+  document.querySelector("section#tasks .container").style.borderColor = choosenColor;  
+  document.querySelector("section#task-container .container").style.borderColor = choosenColor;  
+
 document.querySelector("#task-input").style.backgroundColor = choosenColor; 
 document.querySelector("#task-input").style.opacity = ".6"; 
 document.querySelector("#task-add-btn").style.backgroundColor = choosenColor; 
@@ -371,7 +376,7 @@ document.querySelector(".active-task p").style.color = choosenColor;
   
   document.querySelector("header").style.color = "white";
 
-}
+
 }
 
 

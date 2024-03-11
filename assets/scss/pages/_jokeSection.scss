@@ -16,6 +16,7 @@ section#joke{
             @include btnStyle;
             background-color: #fff;
             color: $header-bg;
+            border: 1px solid $header-bg;
         }
         p{
             font-size: 1.3rem;
