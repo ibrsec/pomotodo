@@ -57,15 +57,15 @@ jokeBtn.onclick = () => {
 let timer;
 
 startBtn.addEventListener("click", () => {
+    document.getElementById("click-sound").play()
   if (activeTaskBelowTimer.textContent.length == 0) {
-    alert("you should select a task");
+    Swal.fire("You should select a task!");
     return;
   }
 
   if(tasksContainer.querySelector("li.active").classList.contains("checked")){
 
-    alert("You are performing a finished task!!")
-
+    Swal.fire("You are performing a finished task!!!");
     }
 
 
@@ -97,6 +97,8 @@ startBtn.addEventListener("click", () => {
 });
 
 stopBtn.addEventListener("click", () => {
+    document.getElementById("click-sound").play()
+
   timer = clearInterval(timer);
   startBtn.disabled = false;
   stopBtn.diabled = true;
@@ -166,8 +168,8 @@ function timerInterval_stopwatch() {
   display(hour, min, sec);
 }
 
-let count_min = 0;
-let count_sec = 25;
+let count_min = 25;
+let count_sec = 0;
 let count_hour = 0;
 function timerInterval_countdown() {
   count_sec--;
@@ -177,7 +179,8 @@ function timerInterval_countdown() {
     count_sec = 59;
   }
   if (count_min == -1) {
-    console.log("bitti");
+    console.log("over");
+    Swal.fire("Time is over!");
     stopBtn.click();
     
     clearInterval(timer);
@@ -244,6 +247,12 @@ taskAddBtn.addEventListener("click", () => {
   spanDelete.classList.add("delete");
   li.appendChild(spanDelete);
 
+  let spanEdit = document.createElement("span");
+  spanEdit.textContent = "📝";
+  spanEdit.classList.add("edit-span");
+  li.appendChild(spanEdit);
+
+
   let spanTime = document.createElement("span");
   spanTime.classList.add("task-time");
   li.appendChild(spanTime);
@@ -284,6 +293,10 @@ tasksContainer.addEventListener("click", (e) => {
     e.target.parentElement.remove();
     activeTaskBelowTimer.textContent = "";
     localStorage.removeItem(`${e.target.closest("li").getAttribute("data-task")}`);
+  } else if(e.target.className == "edit-span"){
+    editWindow(e);
+    
+
   } else if (e.target.className == "checkbox") {
     if (e.target.textContent.length == 0) {
       e.target.textContent = "✔︎";
@@ -485,3 +498,30 @@ allTasks_forGetColors.forEach(eachLi => {
 
 }
 getColorValues();
+
+const editWindow = async(e) => {
+
+
+
+const { value: text } = await Swal.fire({
+    input: "textarea",
+    inputLabel: "Edit your Task!",
+    inputPlaceholder: e.target.parentElement.querySelector("p").textContent,
+    inputAttributes: {
+      "aria-label": "nevar"
+    },
+    showCancelButton: true
+  });
+  if (text) {
+    Swal.fire('Success!!');
+  }else{
+    Swal.fire("Cancelled!!");
+    return;
+  }
+  console.log(text);
+
+  e.target.parentElement.querySelector("p").textContent = text;
+    activeTaskBelowTimer.textContent = text;
+    // localStorage.removeItem(`${e.target.closest("li").getAttribute("data-task")}`);
+}
+

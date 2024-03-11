@@ -257,7 +257,14 @@ section#tasks .container ul#task-container li span.delete {
   position: absolute;
   color: rgb(255, 85, 0);
   cursor: pointer;
-  right: 5px;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+section#tasks .container ul#task-container li span.edit-span {
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -267,7 +274,7 @@ section#tasks .container ul#task-container li .task-time {
   position: absolute;
   color: rgb(36, 127, 132);
   opacity: 0.8;
-  right: 25px;
+  right: 30px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -275,7 +282,7 @@ section#tasks .container ul#task-container li .color-span {
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 65px;
+  right: 70px;
   top: 50%;
   transform: translateY(-50%);
 }

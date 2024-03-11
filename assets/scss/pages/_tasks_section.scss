@@ -114,9 +114,17 @@ background-color: #8faeb5;
             position:absolute;
             color: rgb(255, 85, 0);
             cursor: pointer;
-            right: 5px;
+            right: 3px;
             top: 50%;
             transform: translateY(-50%);
+        }
+        span.edit-span{
+            position:absolute;
+            cursor: pointer;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+
         }
         .task-time{
             content:"11123";
@@ -124,7 +132,7 @@ background-color: #8faeb5;
             position: absolute;
             color: rgb(36, 127, 132);
             opacity: .8;
-            right: 25px;
+            right: 30px;
             top: 50%;
             transform: translateY(-50%);
 
@@ -134,7 +142,7 @@ background-color: #8faeb5;
             width: 30px;
             height: 30px;
             position: absolute;
-            right: 65px;
+            right: 70px;
             top: 50%;
             transform: translateY(-50%);
             input{
