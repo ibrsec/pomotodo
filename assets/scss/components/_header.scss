@@ -1,5 +1,6 @@
 header {
   background-color: $header-bg;
+  @include  box-shadow;
   .container {
     display: flex;
     align-items: center;
@@ -13,8 +14,14 @@ header {
         font-size: 1.4rem;
         letter-spacing:2px;
 
+
         p{
             position: relative;
+        font-family: "Madimi One", sans-serif;
+color: white;
+background-color: rgba(0,0,0,.1);
+border-radius: 20px;
+padding: 1rem 2rem;
 
             span{
                 content:"|";

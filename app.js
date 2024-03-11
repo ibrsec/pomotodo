@@ -90,6 +90,10 @@ startBtn.addEventListener("click", () => {
 
   //show off the task when open the time
   document.querySelector("section#tasks").style.display = "none";
+
+
+
+
 });
 
 stopBtn.addEventListener("click", () => {
@@ -162,8 +166,8 @@ function timerInterval_stopwatch() {
   display(hour, min, sec);
 }
 
-let count_min = 25;
-let count_sec = 0;
+let count_min = 0;
+let count_sec = 25;
 let count_hour = 0;
 function timerInterval_countdown() {
   count_sec--;
@@ -174,16 +178,23 @@ function timerInterval_countdown() {
   }
   if (count_min == -1) {
     console.log("bitti");
+    stopBtn.click();
+    
     clearInterval(timer);
     count_min = 25;
     count_sec = 0;
+    console.log(`${count_hour} : ${count_min} : ${count_sec}`);
+    display(count_hour, count_min, count_sec);
     startBtn.disabled = false;
     stopBtn.diabled = true;
+
     return;
   }
 
   console.log(`${count_hour} : ${count_min} : ${count_sec}`);
   display(count_hour, count_min, count_sec);
+
+  
 }
 
 const display = (hour, min, sec) => {
@@ -266,8 +277,10 @@ taskInput.addEventListener("keydown", (e) => {
   }
 });
 
+
+
 tasksContainer.addEventListener("click", (e) => {
-  if (e.target.className == "delete") {
+    if (e.target.className == "delete") {
     e.target.parentElement.remove();
     activeTaskBelowTimer.textContent = "";
     localStorage.removeItem(`${e.target.closest("li").getAttribute("data-task")}`);
@@ -294,6 +307,22 @@ tasksContainer.addEventListener("click", (e) => {
 
         
 
+
+  }else if( e.target.tagName == "P"){
+    e.target.parentElement.parentElement.querySelectorAll("li").forEach((item) => {
+      item.classList.remove("active");
+    });
+    e.target.parentElement.classList.add("active");
+
+    //task display below countdown
+    activeTaskBelowTimer.textContent =
+      e.target.parentElement.getAttribute("data-task") ?? "-";
+
+      //set the choosed color to ste as style
+      const choosenColor = e.target.parentElement.querySelector("#color-input").value;
+        setColorTheme(choosenColor);
+
+        
 
   }
   saveData();
