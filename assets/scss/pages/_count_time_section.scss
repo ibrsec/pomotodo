@@ -34,6 +34,7 @@ section#count-time {
         align-items: center;
         justify-content: center;
         background-color: rgba(0,0,0,0.1);
+        white-space: nowrap;
     }
     .time-buttons{
         display: flex;
@@ -42,9 +43,30 @@ section#count-time {
         gap: 5px;
         button{
             @include btnStyle;
-            text-shadow: 1px 1px 5px black;
+            text-shadow: 2px 2px 7px #fff;
             border: 1px solid gray;
         }
     }
   }
+}
+
+
+
+
+
+
+@media screen and (max-width:500px){
+  section#count-time {
+    .container {
+      
+  
+      
+      .active-task p{
+          
+          white-space: wrap;
+      }
+      
+    }
+  }
+  
 }

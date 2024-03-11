@@ -272,6 +272,9 @@ taskAddBtn.addEventListener("click", () => {
 
   tasksContainer.appendChild(li);
 
+  localStorage.setItem(value, "#74abb9" );
+
+
   //   liTasks = document.querySelectorAll("#task-container li");
   // console.log(liTasks);
 

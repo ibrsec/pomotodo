@@ -115,6 +115,7 @@ section#count-time .container .active-task p {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
 }
 section#count-time .container .time-buttons {
   display: flex;
@@ -130,7 +131,7 @@ section#count-time .container .time-buttons button {
   border-radius: 15px;
   cursor: pointer;
   transition: 0.6s all ease;
-  text-shadow: 1px 1px 5px black;
+  text-shadow: 2px 2px 7px #fff;
   border: 1px solid gray;
 }
 section#count-time .container .time-buttons button:hover {
@@ -140,6 +141,11 @@ section#count-time .container .time-buttons button:active {
   color: white;
 }
 
+@media screen and (max-width: 500px) {
+  section#count-time .container .active-task p {
+    white-space: wrap;
+  }
+}
 section#tasks .container {
   padding: 1rem;
   display: flex;
