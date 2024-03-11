@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Mono+One&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ header .container {
   justify-content: space-between;
 }
 header .container .logo-img {
-  width: 70px;
+  width: 90px;
 }
 header .container .welcome {
   color: #49406b;
@@ -36,6 +36,7 @@ header .container .welcome p span {
   content: "|";
   position: absolute;
   right: -6px;
+  font-size: 2rem;
 }
 
 section#joke .container {
@@ -46,6 +47,7 @@ section#joke .container {
   padding: 3rem;
   color: #6A2B2A;
   font-weight: 600;
+  gap: 1rem;
 }
 section#joke .container #joke-btn {
   border: none;
@@ -65,10 +67,13 @@ section#joke .container #joke-btn:active {
   color: white;
 }
 section#joke .container p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   padding: 2rem;
   color: white;
   text-shadow: 1px 1px 5px white;
+  text-align: center;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 section#count-time .container {
@@ -86,6 +91,9 @@ section#count-time .container .time-container {
 }
 section#count-time .container .time-container span {
   font-size: 2rem;
+  font-family: "Rubik Mono One", monospace;
+  font-weight: bold;
+  color: #0f1c1f;
 }
 section#count-time .container .active-task p {
   color: rgb(94, 148, 156);
@@ -167,7 +175,7 @@ section#tasks .container .task-add-container button:active {
   color: white;
 }
 section#tasks .container ul#task-container {
-  width: 350px;
+  width: 400px;
   list-style: none;
   display: flex;
   flex-direction: column-reverse;
@@ -177,7 +185,7 @@ section#tasks .container ul#task-container {
 }
 section#tasks .container ul#task-container li {
   padding: 8px;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   padding-left: 2rem;
   position: relative;
   cursor: pointer;
@@ -185,6 +193,12 @@ section#tasks .container ul#task-container li {
   border-radius: 4px;
   background-color: rgb(220, 224, 225);
   cursor: move;
+}
+section#tasks .container ul#task-container li p {
+  width: 75%;
+  white-space: wrap;
+  max-height: 50px;
+  overflow: auto;
 }
 section#tasks .container ul#task-container li.checked {
   text-decoration: line-through;
@@ -224,11 +238,11 @@ section#tasks .container ul#task-container li.checked .checkbox {
   border-radius: 50%;
   border: 2px solid rgb(36, 127, 132);
 }
-section#tasks .container ul#task-container li span {
+section#tasks .container ul#task-container li span.delete {
   position: absolute;
   color: rgb(255, 85, 0);
   cursor: pointer;
-  right: 3px;
+  right: 5px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -261,6 +275,11 @@ section#tasks .container ul#task-container li.over {
   background-color: darkgray;
 }
 
+@media screen and (max-width: 500px) {
+  section#tasks .container ul#task-container {
+    width: 350px;
+  }
+}
 main section .container {
   transition: 0.6s all ease;
 }

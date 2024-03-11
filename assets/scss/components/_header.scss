@@ -5,7 +5,7 @@ header {
     align-items: center;
     justify-content: space-between;
     .logo-img {
-      width: 70px;
+      width: 90px;
     }
     .welcome{
         color:#49406b;
@@ -20,6 +20,7 @@ header {
                 content:"|";
                 position: absolute;
                 right: -6px;
+                font-size: 2rem;
 
             }
         }

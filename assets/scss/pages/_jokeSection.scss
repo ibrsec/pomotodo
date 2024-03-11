@@ -10,6 +10,7 @@ section#joke{
          padding: 3rem;
         color: #6A2B2A;
         font-weight: 600;
+        gap: 1rem;
         #joke-btn{
 
             @include btnStyle;
@@ -17,10 +18,13 @@ section#joke{
             color: $header-bg;
         }
         p{
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             padding: 2rem;
             color: white;
-        text-shadow: 1px 1px 5px white;
+            text-shadow: 1px 1px 5px white;
+            text-align:center;
+            border-radius: 20px;
+            background-color: rgba(0,0,0,.1);
 
         }
     }

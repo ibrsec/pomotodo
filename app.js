@@ -202,21 +202,27 @@ taskAddBtn.addEventListener("click", () => {
   }
   const value = taskInput.value.trim();
   let li = document.createElement("li");
-  li.textContent = value;
   li.setAttribute("data-task", value);
   li.setAttribute("draggable", true);
   li.classList.add("draggable");
-
+  
   // cancel -> adding data index to tasks
   //   let datainn = [...tasksContainer.querySelectorAll("li")]
   //     .map((item) => item.getAttribute("data-index"))
   //     .reduce((max, current) => (max < current ? current : max), 0);
-
+  
   //   li.setAttribute(
-  //     "data-index",
-  //     document.querySelector("#task-container").textContent == "" ? 0 : ++datainn
-  //   );
-  //
+      //     "data-index",
+      //     document.querySelector("#task-container").textContent == "" ? 0 : ++datainn
+      //   );
+      //
+      
+      //p
+      let p = document.createElement("p");
+      p.textContent = value;
+      li.appendChild(p);
+      
+
 
   let spanCheck = document.createElement("span");
   spanCheck.classList.add("checkbox");
