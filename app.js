@@ -57,7 +57,6 @@ jokeBtn.onclick = () => {
 let timer;
 
 startBtn.addEventListener("click", () => {
-    document.getElementById("click-sound").play()
   if (activeTaskBelowTimer.textContent.length == 0) {
     Swal.fire("You should select a task!");
     return;
@@ -90,6 +89,7 @@ startBtn.addEventListener("click", () => {
 
   //show off the task when open the time
   document.querySelector("section#tasks").style.display = "none";
+  document.getElementById("click-sound").play()
 
 
 
@@ -97,7 +97,6 @@ startBtn.addEventListener("click", () => {
 });
 
 stopBtn.addEventListener("click", () => {
-    document.getElementById("click-sound").play()
 
   timer = clearInterval(timer);
   startBtn.disabled = false;
@@ -140,6 +139,7 @@ stopBtn.addEventListener("click", () => {
       item.querySelector(".task-time").textContent = countedTime;
     }
   });
+  document.getElementById("click-sound").play()
 
   saveData();
 });
@@ -521,7 +521,7 @@ const { value: text } = await Swal.fire({
   console.log(text);
 
   e.target.parentElement.querySelector("p").textContent = text;
-    activeTaskBelowTimer.textContent = text;
+  activeTaskBelowTimer.textContent = text;
     // localStorage.removeItem(`${e.target.closest("li").getAttribute("data-task")}`);
 }
 
