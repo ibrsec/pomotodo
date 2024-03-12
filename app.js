@@ -106,19 +106,6 @@ stopBtn.addEventListener("click", () => {
   resetBtn.disabled = false;
 
   //stop button styles
-//   document.querySelector("header").style.backgroundColor = "#74abb9";
-//   document.querySelector("header").style.color = "black";
-//   document.querySelector("#joke .container").style.backgroundColor = "#74abb9";
-//   document.querySelector("#joke .container").style.color = "white";
-//   document.querySelector("main section .container").style.borderColor =
-//     "#74abb9";
-//   document
-//     .querySelectorAll("section#count-time .container .time-buttons button")
-//     .forEach((item) => (item.style.backgroundColor = "#74abb9"));
-//   document
-//     .querySelectorAll("section#count-time .container .time-buttons button")
-//     .forEach((item) => (item.style.color = "black"));
-
   //show on the task when close the time
   document.querySelector("section#tasks").style.display = "block";
 
@@ -128,17 +115,22 @@ stopBtn.addEventListener("click", () => {
 //   document.querySelector("section#count-time .container").style.borderBottomColor = "transparent";
   
 
+
   //send the time to active task
-  const countedTime =
+  const countedTime = 
     count_min == 25
-      ? "00:00"
+      ? "00:00" 
       : `${24 - count_min < 10 ? "0" + (24 - count_min) : 24 - count_min}:${
           60 - count_sec < 10 ? "0" + (60 - count_sec) : 60 - count_sec
         }`;
 
+
+
   console.log("countedTime =", countedTime);
+
   tasksContainer.querySelectorAll("li").forEach((item) => {
     if (item.classList.contains("active")) {
+      
       item.setAttribute("data-task-time", countedTime);
       item.querySelector(".task-time").textContent = countedTime;
     }
@@ -154,8 +146,8 @@ resetBtn.addEventListener("click", () => {
   display(count_hour, count_min, count_sec);
 });
 
-let min = 1;
-let sec = 1;
+let min = 25;
+let sec = 0;
 let hour = 0;
 
 function timerInterval_stopwatch() {
@@ -172,8 +164,8 @@ function timerInterval_stopwatch() {
   display(hour, min, sec);
 }
 
-let count_min = 25;
-let count_sec = 0;
+let count_min = 0;
+let count_sec = 14;
 let count_hour = 0;
 function timerInterval_countdown() {
   count_sec--;
@@ -187,6 +179,22 @@ function timerInterval_countdown() {
     Swal.fire("Time is over!");
     stopBtn.click();
     
+    //send the pomotime if a pomodoro is finished
+    tasksContainer.querySelectorAll("li").forEach((item) => {
+      if (item.classList.contains("active")) {
+        
+
+        item.setAttribute("data-task-pomo", Number(item.getAttribute("data-task-pomo")) + 1 );
+        item.querySelector(".pomo-span").textContent++;
+        item.setAttribute("data-task-time", "00:00");
+        item.querySelector(".task-time").textContent = "00:00";
+      }
+    });
+
+  saveData();
+
+
+
     clearInterval(timer);
     count_min = 25;
     count_sec = 0;
@@ -222,6 +230,7 @@ taskAddBtn.addEventListener("click", () => {
   let li = document.createElement("li");
   li.setAttribute("data-task", value);
   li.setAttribute("draggable", true);
+  li.setAttribute("data-task-pomo", 0);
   li.classList.add("draggable");
   
   // cancel -> adding data index to tasks
@@ -259,7 +268,13 @@ taskAddBtn.addEventListener("click", () => {
 
   let spanTime = document.createElement("span");
   spanTime.classList.add("task-time");
+  spanTime.textContent = "00:00";
   li.appendChild(spanTime);
+
+  let spanPomo = document.createElement("span");
+  spanPomo.classList.add("pomo-span");
+  spanPomo.textContent = "0";
+  li.appendChild(spanPomo);
 
   let spanColor = document.createElement("span");
   spanColor.classList.add("color-span");
@@ -301,6 +316,7 @@ tasksContainer.addEventListener("click", (e) => {
     activeTaskBelowTimer.textContent = "";
     localStorage.removeItem(`${e.target.closest("li").getAttribute("data-task")}`);
   } else if(e.target.className == "edit-span"){
+
     editWindow(e);
     
 
@@ -484,6 +500,7 @@ AllLiTasks.forEach((item) => {
 
 
 //at refresh bring the color value from local storage
+//and dinamic color input when task is active
 const allColorINputs = document.querySelectorAll(".color-span input")
 
 tasksContainer.addEventListener("input", function(e) {
@@ -491,7 +508,12 @@ tasksContainer.addEventListener("input", function(e) {
         localStorage.setItem(`${e.target.closest("li").getAttribute("data-task")}`, e.target.value );
     }
 
-    setColorTheme(e.target.value);
+    //color change should be active just when parent task is active
+    if(e.target.closest("li").classList.contains("active")){
+      console.log(e.target.value);
+
+      setColorTheme(e.target.value);
+    }
 
 
 
@@ -531,7 +553,11 @@ const { value: text } = await Swal.fire({
   console.log(text);
 
   e.target.parentElement.querySelector("p").textContent = text;
-  activeTaskBelowTimer.textContent = text;
+  e.target.parentElement.setAttribute("data-task", text);
+  if(e.target.parentElement.classList.contains("active")){
+    activeTaskBelowTimer.textContent = text;
+
+  }
     // localStorage.removeItem(`${e.target.closest("li").getAttribute("data-task")}`);
 }
 

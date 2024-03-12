@@ -109,12 +109,21 @@ section#count-time .container .active-task p {
   text-transform: capitalize;
   font-weight: 600;
   text-align: center;
+  min-width: 300px;
   width: 80%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.1);
+  white-space: wrap;
+  position: relative;
+}
+section#count-time .container .active-task p::before {
+  content: "Active Task:";
+  position: absolute;
+  top: -23px;
+  font-size: 0.8rem;
   white-space: nowrap;
 }
 section#count-time .container .time-buttons {
@@ -204,7 +213,7 @@ section#tasks .container ul#task-container {
   gap: 5px;
 }
 section#tasks .container ul#task-container li {
-  padding: 8px;
+  padding: 8px 8px 1.7rem 8px;
   font-size: 0.8rem;
   padding-left: 2rem;
   position: relative;
@@ -215,9 +224,9 @@ section#tasks .container ul#task-container li {
   cursor: move;
 }
 section#tasks .container ul#task-container li p {
-  width: 75%;
+  width: 85%;
   white-space: wrap;
-  max-height: 50px;
+  max-height: 80px;
   overflow: auto;
   text-transform: capitalize;
 }
@@ -236,8 +245,7 @@ section#tasks .container ul#task-container li span.checkbox {
   width: 20px;
   height: 20px;
   left: 3px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 13%;
   background-color: rgb(195, 195, 211);
   object-fit: contain;
   border-radius: 50%;
@@ -253,27 +261,26 @@ section#tasks .container ul#task-container li.checked .checkbox {
   width: 20px;
   height: 20px;
   left: 3px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 13%;
   background-color: rgb(40, 179, 40);
   object-fit: contain;
   border-radius: 50%;
   border: 2px solid rgb(36, 127, 132);
 }
 section#tasks .container ul#task-container li span.delete {
+  font-size: 1.3rem;
   position: absolute;
   color: rgb(255, 85, 0);
   cursor: pointer;
-  right: 3px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 10px;
+  top: 1px;
 }
 section#tasks .container ul#task-container li span.edit-span {
+  font-size: 1.2rem;
   position: absolute;
   cursor: pointer;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 33px;
+  top: 1px;
 }
 section#tasks .container ul#task-container li .task-time {
   content: "11123";
@@ -281,22 +288,41 @@ section#tasks .container ul#task-container li .task-time {
   position: absolute;
   color: rgb(36, 127, 132);
   opacity: 0.8;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 32px;
+  bottom: 5px;
+}
+section#tasks .container ul#task-container li .pomo-span {
+  font-size: 0.8rem;
+  position: absolute;
+  color: rgb(36, 127, 132);
+  opacity: 0.8;
+  left: 70px;
+  bottom: 5px;
+}
+section#tasks .container ul#task-container li .pomo-span::before {
+  content: " //  ";
+}
+section#tasks .container ul#task-container li .pomo-span::after {
+  content: " pomo";
 }
 section#tasks .container ul#task-container li .color-span {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 20px;
   position: absolute;
-  right: 70px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 10px;
+  bottom: 3px;
 }
 section#tasks .container ul#task-container li .color-span input {
   width: 100%;
   height: 100%;
   cursor: crosshair;
+}
+section#tasks .container ul#task-container li .color-span::before {
+  content: "Theme: ";
+  position: absolute;
+  left: -55px;
+  top: 1px;
+  color: #74abb9;
 }
 section#tasks .container ul#task-container li.dragging {
   opacity: 0.5;

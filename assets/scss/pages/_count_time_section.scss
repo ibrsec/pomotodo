@@ -24,17 +24,29 @@ section#count-time {
         padding: 10px 1rem;
         border-top: 1px solid;
         border-bottom: 1px solid;
+        // border: 1px solid;
+
         // border-radius: 20px;
         text-transform: capitalize;
         font-weight: 600;
         text-align: center;
+        min-width: 300px;
         width: 80%;
         margin:auto;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: rgba(0,0,0,0.1);
-        white-space: nowrap;
+
+        white-space: wrap;
+        position:relative;
+        &::before{
+          content:"Active Task:";
+          position:absolute;
+          top: -23px;
+          font-size: .8rem;
+          white-space: nowrap;
+        }
     }
     .time-buttons{
         display: flex;
@@ -45,6 +57,7 @@ section#count-time {
             @include btnStyle;
             text-shadow: 2px 2px 7px #fff;
             border: 1px solid gray;
+
         }
     }
   }
