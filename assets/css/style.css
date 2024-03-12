@@ -254,9 +254,10 @@ section#tasks .container ul#task-container li span.checkbox {
 }
 section#tasks .container ul#task-container li.checked .checkbox {
   font-size: 0.9rem;
-  display: grid;
   color: black;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 20px;
   height: 20px;

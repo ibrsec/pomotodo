@@ -95,9 +95,10 @@ background-color: #8faeb5;
         }
         &.checked .checkbox{
             font-size: .9rem;
-            display: grid;
             color:black;
-            place-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: absolute;
             width: 20px;
             height: 20px;

@@ -189,6 +189,7 @@ taskAddBtn.addEventListener("click", () => {
         Swal.fire("Cancelled!!");
         return;
       }
+      console.log(text);
     
       e.target.parentElement.querySelector("p").textContent = text;
       e.target.parentElement.setAttribute("data-task", text);
@@ -196,9 +197,6 @@ taskAddBtn.addEventListener("click", () => {
         activeTaskBelowTimer.textContent = text;
     
       }
-
-
-    saveData();
         // localStorage.removeItem(`${e.target.closest("li").getAttribute("data-task")}`);
     }
   

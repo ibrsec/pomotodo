@@ -28,7 +28,8 @@ function dragStart(e) {
     saveData();
 
   }
-  function dragDrop(e) { 
+  function dragDrop(e) {
+    console.log("drop event");
   
     let allTasks = [...document.querySelectorAll(".draggable")];
     let dragEndIndex = allTasks.indexOf(this);
@@ -55,6 +56,7 @@ function dragStart(e) {
     allTasks.forEach((task) => {
       tasksContainer.appendChild(task);
     });
+    console.log(allTasks);
   }
   
  export const dragdropFunc = () => {

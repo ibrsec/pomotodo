@@ -21,7 +21,6 @@ const AllLiTasks = document.querySelectorAll("#task-container li");
 //at refresh screen the active task
 AllLiTasks.forEach((item) => {
   if (item.classList.contains("active")) {
-    console.log(item);
     activeTaskBelowTimer.textContent = item.getAttribute("data-task");
   }
 });
@@ -37,7 +36,6 @@ tasksContainer.addEventListener("input", function(e) {
 
     //color change should be active just when parent task is active
     if(e.target.closest("li").classList.contains("active")){
-      console.log(e.target.value);
 
       setColorTheme(e.target.value);
     }
